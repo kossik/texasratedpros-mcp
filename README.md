@@ -81,14 +81,14 @@ read from the same service models. Useful links:
 
 ## Registry listings
 
-The 1.0.0 listing is released only after the production endpoint passes
-`npm run smoke`. Registry entries are immutable, so later incompatible releases
-use a new semantic version.
+Version 1.0.0 was published after the production endpoint passed the public
+smoke test. Official Registry entries are immutable, so later incompatible
+releases use a new semantic version.
 
 | Directory | Listing |
 | --- | --- |
-| Official MCP Registry | Pending production release |
-| Smithery | Pending Official Registry release |
+| Official MCP Registry | [Active: `com.texasratedpros/rankings@1.0.0`](https://registry.modelcontextprotocol.io/v0.1/servers?search=com.texasratedpros%2Frankings) |
+| Smithery | [Published: `texasratedpros/rankings`](https://smithery.ai/servers/texasratedpros/rankings) |
 | Glama | Pending registry import |
 | PulseMCP | Pending registry import |
 | MCP.so | Pending free community submission |
