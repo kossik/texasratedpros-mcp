@@ -79,6 +79,27 @@ for (const name of expectedTools) {
 if (resources.length < 2) throw new Error("Expected methodology and llms resources");
 if (prompts.length < 3) throw new Error("Expected three prompts");
 
+for (const expectedName of ["methodology", "llms"]) {
+  const resource = resources.find((candidate) => candidate.name === expectedName);
+  if (!resource) throw new Error(`Missing ${expectedName} resource`);
+  const read = await rpc("resources/read", { uri: resource.uri });
+  if (!read.contents?.[0]?.text) {
+    throw new Error(`${expectedName} resource returned no text`);
+  }
+}
+
+const explainPrompt = prompts.find(
+  (candidate) => candidate.name === "explain_ranking",
+);
+if (!explainPrompt) throw new Error("Missing explain_ranking prompt");
+const prompt = await rpc("prompts/get", {
+  name: explainPrompt.name,
+  arguments: { metro: "austin", category: "house-cleaning" },
+});
+if (!prompt.messages?.length) {
+  throw new Error("explain_ranking prompt returned no messages");
+}
+
 const ranking = await call("get_rankings", {
   metro: "austin",
   category: "house-cleaning",
