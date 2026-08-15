@@ -1,0 +1,14 @@
+{
+  "name": "texasratedpros-mcp-metadata",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Public metadata and smoke tests for the TexasRatedPros Rankings MCP server",
+  "scripts": {
+    "smoke": "node scripts/smoke.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "SEE LICENSE IN LICENSE"
+}
